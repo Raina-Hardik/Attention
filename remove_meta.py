@@ -1,7 +1,7 @@
 import os
 
 root_folder = './shakespeare-dataset/'
-combined_shakespeare = 'combined_shakespeare'
+combined_shakespeare = 'combined-works'
 
 
 def remove_meta(filepath: str) -> None:
@@ -44,7 +44,7 @@ for i, file in enumerate(all_files):
 with open(combined_shakespeare, 'a') as combined_works:
     total_size = 0
     for i, file in enumerate(all_files):
-        with open(file, 'r') as fx:
+        with open(os.path.join(root_folder, file), 'r') as fx:
             combined_works.write(fx.read())
             total_size += len(fx.read())
 
